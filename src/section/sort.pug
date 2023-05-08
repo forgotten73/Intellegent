@@ -1,0 +1,13 @@
+mixin sort(data)
+    include ui-kit/button.pug
+    include ui-kit/icon.pug
+    +b.sort
+        each item in data
+            +e.button-wrap
+                +e.title !{item.title}
+                each button in item.buttons
+                    +button({
+                        link: false,
+                        content: button.content
+                    }).btn--filter(class=button.buttonClass)
+                        +icon(button.icon ? button.icon : 'filter')(class=button.iconClass ? button.iconClass : '--filter')

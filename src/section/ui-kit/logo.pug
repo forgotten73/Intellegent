@@ -1,0 +1,8 @@
+mixin logo(obj)
+    +b.logo
+        if file_name !== 'main'
+            +e('a').link(href="/main.html" title='На главную')
+                +e('img').image(src="/images/inhtml/logo.svg" alt="Логотип интелегент" width="120" height="108")
+        else
+            +e('span').link
+                +e('img').image(src="/images/inhtml/logo.svg" alt="Логотип интелегент" width="120" height="108")

@@ -1,0 +1,39 @@
+mixin feedback-popup()
+    include ../ui-kit/button.pug
+    include ../ui-kit/icon.pug
+    include ../ui-kit/input.pug
+    .modal-dialog.modal-dialog-centered
+        form.modal-content.needs-validation(action="javascript:void(0);" method="get" novalidate)
+            .modal-header
+                h2.modal-title Обратный звонок
+            .modal-body
+                +input({
+                    id: 'name',
+                    type: 'text',
+                    placeholder: 'Представьтесь',
+                    name: 'name',
+                    required: 'required',
+                    textInValid: 'Введите имя',
+                    textValid: 'Готово'
+                }).b-input--feedback-popup
+                +input({
+                    id: 'tel',
+                    type: 'tel',
+                    placeholder: 'Телефон',
+                    name: 'tel',
+                    required: 'required',
+                    textInValid: 'Введите ваш номер телефона',
+                    textValid: 'Готово'
+                }).b-input--feedback-popup
+                +input({
+                    id: 'comment',
+                    type: 'text',
+                    placeholder: 'Комментарий',
+                    name: 'comment'
+                }).b-input--feedback-popup
+            .modal-footer
+                +button({
+                    content: 'Заказать звонок',
+                    link: false
+                }).btn--primary.btn--icon-small.btn--small(type="submit")
+                    +icon('arrow-right').--btn.--arrow-right.--modal-arrow

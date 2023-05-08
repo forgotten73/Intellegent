@@ -1,0 +1,113 @@
+.b-checkbox {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    &__name,
+    &__input {
+        display: inline-block;
+        width: auto;
+    }
+
+    &__input {
+        width: 0;
+        height: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+    }
+
+    &__name {
+        .circe();
+        font-size: 14px;
+        line-height: 22px;
+        color: @cl-font-main;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 14px;
+        position: relative;
+        min-height: 40px;
+        min-width: 40px;
+        border: 1px solid @cl-gainsboro;
+        cursor: pointer;
+        user-select: none;
+        background-color: @checkbox-back;
+        transition-property: background-color, border-color, color;
+        transition-duration: @animation-time;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: @cl-white;
+            color: @cl-font-main;
+            border-color: @cl-gainsboro;
+        }
+    }
+
+    &__input[type=checkbox]:checked ~ &__name {
+        background-color: @checkbox-back-checked;
+        border-color: @cl-buttered-rum;
+        color: @cl-white;
+
+        .b-checkbox--favorite & {
+            background-color: transparent;
+            border-color: transparent;
+            color: @cl-buttered-rum;
+
+            .b-icon--favorite-fill {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__input[type=checkbox]:checked ~ &__name {
+        border-left-color: @cl-tussock;
+    }
+
+    &__text-mobile {
+        display: none;
+    }
+
+    .btn-group & {
+        &:not(:first-child) {
+            margin-left: -1px;
+        }
+
+        &:last-child {
+            margin-left: 10px;
+        }
+    }
+
+    &:first-child,
+    &:last-child {
+        .b-checkbox__input[type=checkbox]:checked ~ .b-checkbox__name {
+            border-left-color: @cl-buttered-rum;
+        }
+    }
+
+    &--favorite {
+        height: 19px;
+        z-index: 3;
+    }
+
+    &--favorite & {
+        &__name {
+            display: inline-flex;
+            align-items: center;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            width: 21px;
+            height: 19px;
+            min-width: 21px;
+            min-height: 19px;
+
+            .no-touchevents &:hover {
+                .b-icon--favorite {
+                    color: @cl-twine;
+                }
+            }
+        }
+    }
+}

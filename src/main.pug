@@ -1,0 +1,407 @@
+//- ====================
+//- kontora: main
+//- 00-00-2017:
+//- --------------------
+//- Главная страница.
+//- ====================
+
+//- Используем стандартный шаблон Project
+extends ./template/base_layout
+
+block variables
+    - var file_name = 'main'
+
+//- Модифицируем head
+block head
+    - var pageTitle = 'Главная страница';
+    - var pageDescription = 'Рандомное описание страницы'
+    - var pageImage = 'images/content/test-image.jpg'
+
+//- Выводим попапы
+block popup
+    include section/popups/feedback-popup.pug
+    include section/ui-kit/popup.pug
+    include section/popups/info-popup.pug
+    +popup()(id="feedback", aria-hidden="true")
+        +popup-close()
+        +feedback-popup()
+    +popup()(id="info-popup", aria-hidden="true" class="modal--info-popup")
+        +popup-close()
+        +info-popup()
+
+//- Выводим content
+block content
+    include section/ui-kit/checkbox.pug
+    include section/ui-kit/button.pug
+    include section/ui-kit/icon.pug
+    include section/ui-kit/switch.pug
+    include section/ui-kit/range.pug
+    include section/ui-kit/title.pug
+    include section/ui-kit/select.pug
+    include section/accordion.pug
+    include section/card-list.pug
+    include section/sort.pug
+
+    +b('section').apartments
+        .b-container.b-container--small
+            +b.page-header
+                +title({
+                    type: 'h1',
+                    title: 'Выбор квартиры',
+                }).--h1
+                +switch({
+                    id: 'switch-filter',
+                    contentUnchecked: 'на генплане',
+                    contentChecked: 'по параметрам',
+                })
+        .b-container
+            +b.filter
+                .row.gy-4.mb-4.mb-sm-5
+                    .col-12.col-sm-6.col-lg
+                        +title({
+                            type: 'h2',
+                            title: 'Помещение'
+                        }).--h2
+                        +select([
+                                {
+                                    content: 'Квартира',
+                                    value: 'flat'
+                                },
+                                {
+                                    content: 'Машиноместо',
+                                    value: 'parking-place'
+                                },
+                                {
+                                    content: 'Коммерческое помещение',
+                                    value: 'commercial-premises'
+                                }
+                            ],{ name: 'apartments' })
+                    .col-12.col-sm-6.col-lg
+                        +title({
+                            type: 'h2',
+                            title: 'Количество комнат'
+                        }).--h2
+                        .btn-group(role="group" aria-label="Basic checkbox toggle button group")
+                            +checkbox({
+                                name: 'studiо',
+                                id: 's-1',
+                                label: 'С',
+                                js: 'js-class'
+                            })
+                            +checkbox({
+                                name: 'flat-1',
+                                id: 'f-1',
+                                label: '1',
+                                js: 'js-class'
+                            })
+                            +checkbox({
+                                name: 'flat-2',
+                                id: 'f-2',
+                                label: '2',
+                                js: 'js-class'
+                            })
+                            +checkbox({
+                                name: 'flat-3',
+                                id: 'f-3',
+                                label: '3',
+                                js: 'js-class'
+                            })
+                            +checkbox({
+                                name: 'euro',
+                                id: 'e-1',
+                                label: 'Евро',
+                                js: '',
+                                checked: 'checked'
+                            })
+                    .col-12.col-sm-6.col-lg
+                        +title({
+                            type: 'h2',
+                            title: 'Общая площадь (м2)'
+                        }).--h2
+                        +range({
+                            range: 'js-range-area',
+                            valueLower: 'js-area-value-lower',
+                            valueUpper: 'js-area-value-upper'
+                        })
+                    .col-12.col-sm-6.col-lg
+                        +title({
+                            type: 'h2',
+                            title: 'Стоимость (₽)'
+                        }).--h2
+                        +range({
+                            range: 'js-range-price',
+                            valueLower: 'js-price-value-lower',
+                            valueUpper: 'js-price-value-upper'
+                        })
+                +e.buttons-wrap.-row
+                    .col-12
+                        +accordion([
+                            {
+                                idAccordion: 'moreFilters',
+                                idHead: 'head-1',
+                                idTarget: 'target-1',
+                                header: 'Расширенный фильтр'
+                            }
+                        ])
+                            .row.gy-4
+                                .col-12.col-sm-6.col-lg
+                                    +title({
+                                        type: 'h2',
+                                        title: 'Этаж'
+                                    }).--h2
+                                    +range({
+                                        range: 'js-range-floor',
+                                        valueLower: 'js-floor-value-lower',
+                                        valueUpper: 'js-floor-value-upper'
+                                    })
+                                .col-12.col-sm-6.col-lg
+                                    +title({
+                                        type: 'h2',
+                                        title: 'Корпус'
+                                    }).--h2
+                                    +select([
+                                        {
+                                            content: 'Корпус'
+                                        },
+                                        {
+                                            content: '1-й'
+                                        },
+                                        {
+                                            content: '2-й'
+                                        },
+                                        {
+                                            content: '3-й'
+                                        },
+                                        {
+                                            content: 'Последний'
+                                        }
+                                    ],{ name: 'apartments' })
+                                .col-12.col-sm-6.col-lg
+                                    +title({
+                                        type: 'h2',
+                                        title: 'Отделка'
+                                    }).--h2
+                                    +select([
+                                        {
+                                            content: 'Отделка'
+                                        },
+                                        {
+                                            content: 'Без отделки'
+                                        },
+                                        {
+                                            content: 'С отделкой'
+                                        },
+                                        {
+                                            content: 'Японский стиль'
+                                        },
+                                        {
+                                            content: 'Евро'
+                                        }
+                                    ],{ name: 'apartments' })
+                                .col-12.col-sm-6.col-lg
+                                    +title({
+                                        type: 'h2',
+                                        title: 'Вид из окон'
+                                    }).--h2
+                                    +select([
+                                        {
+                                            content: 'Вид из окон'
+                                        },
+                                        {
+                                            content: 'Двор'
+                                        },
+                                        {
+                                            content: 'Дорога'
+                                        },
+                                        {
+                                            content: 'Море'
+                                        },
+                                        {
+                                            content: 'Окно соседа'
+                                        }
+                                    ],{ name: 'apartments' })
+        .b-container.b-container--small
+            +sort([
+                {
+                    title: 'Сортировать по',
+                    buttons: [
+                    {
+                        content: 'цене',
+                        buttonClass: 'active'
+                    },
+                    {
+                        content: 'размеру скидки',
+                        buttonClass: 'ascending'
+                    },
+                    {
+                        content: 'площади',
+                    }
+                ]
+                },
+                {
+                    title: 'Вид',
+                    buttons: [
+                    {
+                        icon: 'filter-grid',
+                        buttonClass: 'btn--view active',
+                        iconClass: '--view'
+                    },
+                    {
+                        icon: 'filter-list',
+                        buttonClass: 'btn--view',
+                        iconClass: '--view'
+                    }
+                ]
+            }])
+            +card-list([
+                {
+                    href: 'javascript:void(0);',
+                    number: '№1',
+                    title: '2-комнатная квартира, 72&nbsp;м2',
+                    titleLink: '2-комнатная квартира, 72 м2',
+                    id: 'favorite-1',
+                    items: [
+                        {
+                            label: '2 корпус'
+                        },
+                        {
+                            label: '3 этаж'
+                        }
+                    ],
+                    price: '6 500 600',
+                },
+                {
+                    href: 'javascript:void(0);',
+                    number: '№35',
+                    title: '2-комнатная квартира, 72&nbsp;м2',
+                    titleLink: '2-комнатная квартира, 72 м2',
+                    id: 'favorite-2',
+                    items: [
+                        {
+                            label: '2 корпус'
+                        },
+                        {
+                            label: '3 этаж'
+                        }
+                    ],
+                    price: '6 500 600',
+                    priceOld: '7 500 600',
+                    badge: 'до 15.09'
+                },
+                {
+                    href: 'javascript:void(0);',
+                    number: '№14635',
+                    title: '2-комнатная квартира, 72&nbsp;м2',
+                    titleLink: '2-комнатная квартира, 72 м2',
+                    id: 'favorite-3',
+                    items: [
+                        {
+                            label: '2 корпус'
+                        },
+                        {
+                            label: '3 этаж'
+                        }
+                    ],
+                    price: '6 500 600',
+                    priceOld: '7 500 600',
+                    badge: 'до 15.09'
+                },
+                {
+                    href: 'javascript:void(0);',
+                    number: '№13',
+                    title: '2-комнатная квартира, 72&nbsp;м2',
+                    titleLink: '2-комнатная квартира, 72 м2',
+                    id: 'favorite-4',
+                    items: [
+                        {
+                            label: '2 корпус'
+                        },
+                        {
+                            label: '3 этаж'
+                        }
+                    ],
+                    price: '6 500 600',
+                    priceOld: '7 500 600',
+                    badge: 'до 15.09'
+                },
+                {
+                    href: 'javascript:void(0);',
+                    number: '№1111',
+                    title: '2-комнатная квартира, 72&nbsp;м2',
+                    titleLink: '2-комнатная квартира, 72 м2',
+                    id: 'favorite-5',
+                    items: [
+                        {
+                            label: '2 корпус'
+                        },
+                        {
+                            label: '3 этаж'
+                        }
+                    ],
+                    price: '6 500 600',
+                    priceOld: '7 500 600',
+                    badge: 'до 15.09'
+                },
+                {
+                        href: 'javascript:void(0);',
+                        number: '№66',
+                        title: '2-комнатная квартира, 72&nbsp;м2',
+                        titleLink: '2-комнатная квартира, 72 м2',
+                        id: 'favorite-6',
+                        items: [
+                            {
+                                label: '2 корпус'
+                            },
+                            {
+                                label: '3 этаж'
+                            }
+                        ],
+                        price: '6 500 600',
+                        priceOld: '7 500 600',
+                        badge: 'до 15.09'
+                    },
+                    {
+                        href: 'javascript:void(0);',
+                        number: '№90',
+                        title: '2-комнатная квартира, 72&nbsp;м2',
+                        titleLink: '2-комнатная квартира, 72 м2',
+                        id: 'favorite-7',
+                        items: [
+                            {
+                                label: '2 корпус'
+                            },
+                            {
+                                label: '3 этаж'
+                            }
+                        ],
+                        price: '6 500 600',
+                        priceOld: '7 500 600',
+                        badge: 'до 15.09'
+                    },
+                    {
+                        href: 'javascript:void(0);',
+                        number: '№000',
+                        title: '2-комнатная квартира, 72&nbsp;м2',
+                        titleLink: '2-комнатная квартира, 72 м2',
+                        id: 'favorite-8',
+                        items: [
+                            {
+                                label: '2 корпус'
+                            },
+                            {
+                                label: '3 этаж'
+                            }
+                        ],
+                        price: '6 500 600',
+                        priceOld: '7 500 600',
+                        badge: 'до 15.09'
+                    }
+            ]).-row.-g-0
+            .row.justify-content-center
+                .col-auto
+                    +button({
+                        content: 'Показать ещё',
+                        link: false,
+                        href: 'javascript:void(0);',
+                    }).btn--primary.btn--icon-small.btn--small
+                        +icon('more').--btn.--more

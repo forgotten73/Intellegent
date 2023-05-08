@@ -1,0 +1,26 @@
+.accordion {
+
+    .accordion-header {
+        flex-direction: row;
+    }
+
+    .accordion-body {
+        padding: 0 0 32px;
+    }
+
+    &__icon {
+        display: flex;
+    }
+
+    .accordion-button {
+        &--filter {
+            .circe();
+            .text(14px, 20px, 0em);
+            color: @cl-font-main;
+            padding: 0;
+            border: none;
+            text-transform: none;
+            justify-content: flex-start;
+        }
+    }
+}

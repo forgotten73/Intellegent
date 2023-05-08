@@ -1,0 +1,6 @@
+mixin social(obj)
+    include icon.pug
+    +b.social(class!=attributes.class)
+        each item in obj
+            +e('a').link(href="javascript:void(0)", title=item.title)
+                +icon(item.icon).--social

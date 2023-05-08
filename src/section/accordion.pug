@@ -1,0 +1,27 @@
+mixin accordion(obj)
+    include ui-kit/button.pug
+    include ui-kit/icon.pug
+    .accordion(id=obj.idAccordion)
+        each item in obj
+            .accordion-item
+                h2.accordion-header(id=item.idHead)
+                    button.accordion-button.accordion-button--filter.collapsed(
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target= '#' + item.idTarget
+                        aria-expanded="false"
+                        aria-controls=item.idTarget
+                    ) !{item.header}
+                        span.accordion__icon
+                    +button({
+                        link: false,
+                        content: 'Сбросить фильтр'
+                    }).btn--primary.btn--filter-reset
+                        +icon('close').--filter-reset
+                .accordion-collapse.collapse(
+                    id=item.idTarget
+                    aria-labelledby=item.idHead
+                    data-bs-parent='#' + item.idAccordion
+                )
+                    .accordion-body
+                        block

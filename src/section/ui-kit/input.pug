@@ -1,0 +1,23 @@
+//- ====================
+//- kontora: input
+//- 00-00-2020: author
+//- --------------------
+//- инпут
+//- ====================
+
+mixin input(obj)
+    .b-input(class!=attributes.class)
+        if obj.label
+            label.form-label(for=obj.id) !{obj.label}
+        input.form-control(
+            id=obj.id,
+            type=obj.type,
+            placeholder=obj.placeholder,
+            name=obj.name,
+            value=obj.value,
+            class=obj.class,
+            required=obj.required
+        )
+        span.valid-feedback !{obj.textValid}
+        span.invalid-feedback !{obj.textInValid}
+

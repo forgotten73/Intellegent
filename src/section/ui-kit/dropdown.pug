@@ -1,0 +1,18 @@
+mixin dropdown(obj)
+    include link.pug
+    .b-dropdown
+        button.btn.btn--outline-primary.btn--dropdown.dropdown-toggle(
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+        ) !{obj.content}
+        ul.dropdown-menu(aria-labelledby="dropdownMenuButton1")
+            li.dropdown-header !{obj.content}
+            each item in obj.items
+                li
+                    +link({
+                        link: true,
+                        href: 'javascript:void(0);',
+                        content: item.content
+                    }).--dropdown(class="-dropdown-item")

@@ -1,0 +1,143 @@
+.btn {
+
+    &--favorite-header,
+    &--favorite-burger {
+        display: inline-flex;
+        align-items: center;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        height: 48px;
+        align-items: center;
+        padding: 0 18px;
+        border: 1px solid @cl-gainsboro;
+        border-radius: 30px;
+
+        .no-touchevents &:hover,
+        .touchactive &:active,
+        &:hover {
+            border-color: @cl-gainsboro;
+            background-color: transparent;
+        }
+
+        &:focus {
+            background-color: transparent;
+        }
+    }
+
+    &--favorite-header {
+        display: none;
+    }
+
+    &--small {
+        padding: 14px 20px;
+    }
+
+    &--phone {
+        width: 48px;
+        height: 48px;
+        padding: 15px;
+        border-radius: 50%;
+
+        .no-touchevents &:hover {
+            transform: scale(1.17);
+        }
+    }
+
+    &--burger {
+        width: 48px;
+        height: 48px;
+        border: 1px solid @cl-gainsboro;
+        border-radius: 50%;
+        padding: 15px 13px;
+        background-color: transparent;
+        color: @cl-font-main;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            color: @cl-font-main;
+            border-color: @cl-gainsboro;
+        }
+    }
+
+    &--icon {
+        padding-right: 75px;
+    }
+
+    &--icon-small {
+        padding-right: 68px;
+    }
+
+    &--dropdown {
+        .circe;
+        .text(14px, 24px, 0em);
+        text-transform: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 8px 12px 8px 14px;
+        width: 100%;
+
+        &.show {
+
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+        .dropdown-menu {
+            width: 100%;
+        }
+    }
+
+    &--filter-reset {
+        .text(12px, 24px, 0em);
+        padding: 12px;
+        width: 100%;
+        flex-shrink: 0;
+
+        .b-icon--filter-reset {
+            transition: color @animation-time ease-in-out;
+        }
+    }
+
+    &--filter {
+        .circe();
+        .text(14px, 20px, 0em);
+        color: @cl-font-main;
+        padding: 0;
+        margin-right: 24px;
+        border: none;
+        text-transform: none;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        &:focus, &.active, &:hover {
+            color: @cl-buttered-rum;
+        }
+
+        &.ascending {
+            .b-icon--filter {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &--view {
+        color: @cl-dark-grey;
+        height: 13px;
+        line-height: 1;
+        margin-right: 12px;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        &:focus, &.active, &:hover {
+            color: @cl-font-main;
+        }
+    }
+}

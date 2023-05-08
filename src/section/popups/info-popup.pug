@@ -1,0 +1,14 @@
+mixin info-popup()
+    include ../ui-kit/button.pug
+
+    .modal-dialog.modal-dialog-centered
+        .modal-content
+            .modal-header
+                h2.modal-title Заявка отправлена!
+            .modal-body
+                p Наш менеджер свяжется с вами, как только освободится.
+            .modal-footer
+                +button({
+                    content: 'Закрыть',
+                    link: false
+                }).btn--primary.btn--small(data-bs-dismiss="modal")

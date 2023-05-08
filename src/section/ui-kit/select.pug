@@ -1,0 +1,7 @@
+mixin select(obj)
+    include icon.pug
+    +b.select
+        +icon('dropdown').--dropdown-select
+        +e('select').select.js-select(name=obj.name)
+            each item in obj
+                +e('option').item(value=item.value) !{item.content}

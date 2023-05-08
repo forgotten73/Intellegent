@@ -1,0 +1,9 @@
+mixin price(obj)
+    include badge.pug
+    +b('span').price(class!=attributes.class)
+        +e('span').price(class=obj.priceOld ? '--sale' : '') !{obj.price}&nbsp;&#8381;
+        if obj.priceOld
+            +badge({
+                    content: obj.badge
+                }).text-bg-primary.badge--card
+            +e('span').price.--old !{obj.priceOld}&nbsp;&#8381;

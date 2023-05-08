@@ -1,0 +1,58 @@
+/* 320 + */
+.b-link {
+    .circe-bold();
+    .text(16px, 20px);
+    display: inline;
+    text-decoration: none;
+    transition: color @animation-time ease-in-out,  border-color @animation-time ease-in-out;
+    text-transform: uppercase;
+
+    .touchevents &:active {
+        color: @cl-buttered-rum;
+    }
+
+
+    // Общие
+    &--block {
+        display: block;
+    }
+
+    &--dropdown {
+        .circe();
+        text-transform: none;
+    }
+
+    &--privacy,
+    &--offer {
+        .circe();
+        .text(12px, 14px, 0em);
+        color: @cl-font-light;
+        text-transform: none;
+        display: block;
+    }
+
+    &--privacy {
+        margin-bottom: 12px;
+    }
+
+    &--offer {
+        margin-bottom: 31px;
+    }
+
+    &--phone-number {
+        display: none;
+        .circe-bold();
+        .text(16px, 20px);
+        margin-right: 32px;
+    }
+
+    &--phone-burger {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    &--nav-list {
+        padding: 14px 0;
+        display: inline-block;
+    }
+}

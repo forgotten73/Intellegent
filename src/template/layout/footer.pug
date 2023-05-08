@@ -1,0 +1,46 @@
+//- ====================
+//- kontora: footer_main
+//- 00-00-2017: Author
+//- --------------------
+//- Футер страниц
+//- ===================
+mixin footer()
+    include ../../section/ui-kit/icon.pug
+    include ../../section/ui-kit/social.pug
+    include ../../section/ui-kit/link.pug
+
+    footer.b-footer
+        .b-container.b-container--small
+            .b-footer__wrapper.row.justify-content-md-between.align-items-md-center
+                .col-12.col-md-auto.order-md-last
+                    +social([
+                        {
+                            title: 'Vk',
+                            icon: 'vk'
+                        },
+                        {
+                            title: 'Ok',
+                            icon: 'ok'
+                        },
+                        {
+                            title: 'Facebook',
+                            icon: 'facebook'
+                        },
+                        {
+                            title: 'Telegram',
+                            icon: 'telegram'
+                        }
+                    ])
+                .col-12.col-md-auto
+                    +link({
+                        link: true,
+                        href: 'javascript:void(0);',
+                        content: 'Политика конфиденциальности',
+                    }).--privacy
+                    +link({
+                        link: true,
+                        href: 'javascript:void(0);',
+                        content: 'Информация о не публичной оферте',
+                    }).--offer
+                .col-12.col-md-auto.order-md-first
+                    span.b-footer__copyright &copy;&nbsp;ЖК&nbsp;Интеллигент, 2020

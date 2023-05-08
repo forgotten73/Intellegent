@@ -1,0 +1,28 @@
+.b-social {
+    display: flex;
+    margin: 0 0 28px;
+
+
+    &__link {
+        height: 32px;
+        width: 32px;
+        flex-shrink: 0;
+        text-decoration: none;
+        color: @cl-dark-grey;
+        transition: color @animation-time ease-in-out;
+        margin-right: 4px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            color: @cl-buttered-rum;
+        }
+    }
+
+    &--burger {
+        margin-bottom: 0;
+    }
+}

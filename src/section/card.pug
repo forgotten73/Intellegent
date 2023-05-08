@@ -1,0 +1,35 @@
+mixin card(obj)
+    include ui-kit/button.pug
+    include ui-kit/icon.pug
+    include ui-kit/price.pug
+    include ui-kit/badge.pug
+    include ui-kit/images.pug
+    include ui-kit/checkbox.pug
+
+    +b.-card
+        +e.-header
+            +e.-number !{obj.number}
+            +checkbox({
+                name: 'favorite',
+                id: obj.id,
+            }).--favorite
+                +icon('favorite').--favorite
+                +icon('favorite-fill').--favorite-fill
+        +e('a').-link(href=obj.href, title=obj.titleLink)
+            +images([
+                {
+                    srcset: '/images/content/apartment-layout.webp',
+                    type: 'image/webp'
+                }
+            ], true, '/images/content/apartment-layout.png', '205', '150').--card
+        .card-body
+            .card-title !{obj.title}
+            +e.-locations
+                each item in obj.items
+                    +e.-location !{item.label}
+        .card-footer
+            +price({
+                price: obj.price,
+                priceOld: obj.priceOld,
+                badge: obj.badge
+            }).--card

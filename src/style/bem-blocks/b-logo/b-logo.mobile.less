@@ -1,0 +1,23 @@
+.b-logo {
+
+    &__link {
+        width: 100px;
+        height: 90px;
+        display: block;
+        transition: width @animation-time ease-in-out, height @animation-time ease-in-out;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .b-header.scroll & {
+
+        .b-logo__link {
+            height: 74px;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+/* 320 + */
+.b-title {
+    display: block;
+    line-height: normal;
+    letter-spacing: normal;
+    color: @cl-muddy-waters;
+    margin: 0;
+
+    &--h1 {
+        .circe-extra-bold;
+        .text(28px, 38px, 0em);
+        text-transform: uppercase;
+    }
+
+    &--h2 {
+        .circe();
+        .text(11px, 18px, 0.04em);
+        color: @cl-gray;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &--block {
+        display: block;
+        margin-right: 0;
+    }
+
+    &__new-line {
+        display: block;
+        margin: 0;
+    }
+
+    @media(min-width: 375px) {
+        &--h1 {
+            .text(32px, 42px, 0em);
+        }
+    }
+}

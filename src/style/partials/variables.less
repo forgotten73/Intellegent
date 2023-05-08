@@ -1,0 +1,92 @@
+// Fonts
+@font-base: "Circe";
+
+// Animation
+@animation-time: 0.3s;
+@double-animation: 0.6s;
+
+// MediaQ - теперо подключаются в layout
+// @desktop: ~"(max-width: 1439px)";
+// @desktop-min: ~"(max-width: 1169px)";
+// @tablet: ~"(max-width: 1023px)";
+// @mobile: ~"(max-width: 767px)";
+
+// Colors
+// Цвета theme. Не трогать!!!
+@cl-theme-global: @cl-font-main;
+@cl-theme-link: @cl-font-main;
+@cl-theme-link-hover: @cl-font-light;
+@cl-theme-grey: @cl-gray;
+
+// Цвета текста
+@cl-font-main: @cl-nero;
+@cl-font-light: @cl-gray;
+
+/* Добавлять по категориям cl-элемент
+/* @cl-button-bg: @Var */
+
+// Общий док
+@background: @cl-snow;
+
+// разделитель между секция
+@hr-main: @cl-gray;
+
+// элементы формы (input, textarea, select, etc)
+@form-back: @cl-white;
+@form-border: @cl-gainsboro;
+
+// Checkbox
+@checkbox-back: @cl-white;
+@checkbox-back-hover: @cl-gray;
+@checkbox-back-checked: @cl-buttered-rum;
+@check-mark: @cl-white;
+
+// Radiobutton
+@radio-back: @cl-white;
+
+// кнопки с бэком без бордера
+@button-main-back: @cl-buttered-rum;
+@button-main-hover: @cl-tussock;
+@button-main-active: @cl-tussock;
+
+// кнопки прозрачные
+@button-transparent-back: @cl-transparent;
+@button-transparent-hover: @cl-gray;
+@button-transparent-active: @cl-gray;
+
+// mixin
+.text(@size: 14px, @height: 20px, @spacing: 0.02em) {
+    font-size: @size;
+    line-height: @height;
+    letter-spacing: @spacing;
+}
+
+
+
+
+
+// ------
+// ЦВЕТА 
+// ------
+
+// // Alpha colors
+// // @cl-alpha: rgba(255, 255, 255, .2); // цвет + описание
+
+// Основные цвета
+@cl-transparent: transparent;
+@cl-white: #ffffff;
+@cl-black: #000000;
+@cl-gray: #818181;
+@cl-nero: #292929;
+@cl-buttered-rum: #96723F;
+@cl-snow: #F9F9F9;
+@cl-gainsboro: #dddddd;
+@cl-tussock: #B6874B;
+@cl-muddy-waters: #A78049;
+@cl-twine: #C6995E;
+@cl-whisper: #e7e7e7;
+@cl-cinnabar: #E23131;
+@cl-dark-grey: #B0B0B0;
+@cl-pure-or-mostly-pure-red: #ff0000;
+@cl-very-dark-gray-mostly-black: #212121;
+// Генерируемые цвета - ниже не пишем ничего сами )

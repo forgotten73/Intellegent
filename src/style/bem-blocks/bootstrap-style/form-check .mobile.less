@@ -1,0 +1,42 @@
+.form-check {
+    &--switch {
+        display: none;
+        align-items: center;
+
+        .form-check-input {
+            cursor: pointer;
+        }
+
+        .form-check-input ~ .form-check-label--unchecked {
+            .circe-bold();
+            color: @cl-font-main;
+            pointer-events: none;
+        }
+
+        .form-check-input:checked ~ .form-check-label--unchecked {
+            .circe();
+            color: @cl-font-light;
+            pointer-events: auto;
+        }
+
+        .form-check-input:checked ~ .form-check-label--checked {
+            .circe-bold();
+            color: @cl-font-main;
+            pointer-events: none;
+        }
+
+        .form-check-label {
+            width: auto;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+    }
+}
+
+.form-check-label {
+    .text(@height: 20px, @spacing: 0em);
+    color: @cl-gray;
+    &--unchecked {
+        order: -1;
+    }
+}

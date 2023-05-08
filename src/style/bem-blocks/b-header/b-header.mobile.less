@@ -1,0 +1,25 @@
+.b-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    padding: 20px;
+    width: 100%;
+    background-color: @background;
+    transition: padding @animation-time ease-in-out, background-color @animation-time ease-in-out;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__nav-wrap {
+        display: none;
+    }
+
+    &.scroll {
+        background-color: @cl-white;
+        padding: 15px 20px;
+    }
+}

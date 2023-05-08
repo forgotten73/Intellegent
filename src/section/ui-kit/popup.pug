@@ -1,0 +1,25 @@
+//- ====================
+//- kontora: popup
+//- 00-00-2020: author
+//- --------------------
+//- Попап
+//- ====================
+
+mixin popup()
+    //- +b('dialog').popup //пока не поддерживается
+    .modal.fade&attributes( attributes )
+        //- ПопАпчики
+        block
+
+//- для использования дат
+mixin popup-data(data)
+    +b.popup&attributes( data.attributes )
+        +e.content( class=data.contentClass )
+            //- ПопАпчики
+            block
+
+//- Крестик
+mixin popup-close()
+    button.btn-close.btn-close--popup(type="button" data-bs-dismiss="modal" )
+        //- include icon.pug
+        //- +icon('close-popup').--close-popup

@@ -1,0 +1,11 @@
+mixin nav-list(obj)
+    include ui-kit/link.pug
+    +b('nav').nav-list(class!=attributes.class)
+        +e('ul').list
+            each item in obj
+                +e.item
+                    +link({
+                        link: true,
+                        content: item.content,
+                        href: 'javascript:void(0);'
+                    }).--nav-list

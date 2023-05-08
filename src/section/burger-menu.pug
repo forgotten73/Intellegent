@@ -1,0 +1,61 @@
+mixin burger-menu(obj)
+    include ui-kit/link.pug
+    include ui-kit/button.pug
+    include ui-kit/icon.pug
+    include ui-kit/social.pug
+
+    .offcanvas.offcanvas-start(id="burgerMenu" aria-labeledby="burgerMenuLabel")
+        .offcanvas-header
+            button.btn-close.btn-close--burger(data-bs-dismiss="offcanvas" type="button")
+
+            +button({
+                link: true,
+                href: 'javascript:void(0);',
+                title: 'Избранное'
+            }).btn--primary.btn--favorite-burger
+                +icon('favorite-fill').--favorite-header
+                span.b-counter 2
+        .offcanvas-body.js-burger-wrap
+            +nav-list([
+                {
+                    content: 'Выбор квартиры'
+                },
+                {
+                    content: 'Галерея'
+                },
+                {
+                    content: 'Xод строительства'
+                },
+                {
+                    content: 'Новости'
+                },
+                {
+                    content: 'Контакты'
+                }
+            ]).js-customise-card
+        .offcanvas-footer
+            +link({
+                link: true,
+                href: 'tel:+74951350981',
+                content: '+7 (495) 135-09-81'
+            }).--phone-number.--phone-burger(title="Позвоните нам")
+            +social([
+                {
+                    title: 'Vk',
+                    icon: 'vk'
+                },
+                {
+                    title: 'Ok',
+                    icon: 'ok'
+                },
+                {
+                    title: 'Facebook',
+                    icon: 'facebook'
+                },
+                {
+                    title: 'Telegram',
+                    icon: 'telegram'
+                }
+            ]).--burger
+
+

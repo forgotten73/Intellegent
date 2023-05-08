@@ -1,0 +1,28 @@
+.btn {
+
+    &--filter-reset {
+        .circe();
+        .text(14px, 20px, 0em);
+        padding: 0;
+        color: @cl-gray;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        text-transform: none;
+        background-color: @cl-white;
+        width: auto;
+        margin-left: auto;
+        padding: 4px 0;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        &:focus {
+            background-color: @cl-white;
+            color: @cl-font-main;
+
+            .b-icon--filter-reset {
+                color: @cl-font-main;
+            }
+        }
+    }
+}

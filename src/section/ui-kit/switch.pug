@@ -1,0 +1,9 @@
+mixin switch(obj)
+    .form-check.form-check--switch.form-switch
+        input.form-check-input(
+            id=obj.id
+            type="checkbox"
+            role="switch"
+        )
+        label.form-check-label.form-check-label--unchecked(for=obj.id) !{obj.contentUnchecked}
+        label.form-check-label.form-check-label--checked(for=obj.id) !{obj.contentChecked}

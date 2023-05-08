@@ -1,0 +1,18 @@
+.b-logo {
+    margin-right: 40px;
+    transition: margin @animation-time ease-in-out;
+
+    &__link {
+        width: 120px;
+        height: 108px;
+    }
+
+    .b-header.scroll & {
+        margin-right: 60px;
+
+        .b-logo__link {
+            width: 100px;
+            height: 74px;
+        }
+    }
+}

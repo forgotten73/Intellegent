@@ -1,0 +1,110 @@
+/* 320 + */
+.b-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-size: 30px;
+
+    &--btn {
+        width: 56px;
+        height: 56px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: @cl-muddy-waters;
+        transition: background-color @animation-time ease-in-out;
+
+        .btn--primary:hover & {
+            background-color: @cl-twine;
+        }
+
+        .btn-check:focus + .btn--icon &,
+        .btn-check:focus + .btn--icon-small &,
+        .btn--icon:focus &,
+        .btn--icon-small:focus & {
+            background-color: @cl-twine;
+        }
+    }
+
+    &--arrow-right {
+        font-size: 11px;
+    }
+
+    &--modal-arrow {
+        width: 48px;
+        height: 48px;
+    }
+
+    &--more {
+        font-size: 18px;
+        width: 48px;
+        height: 48px;
+    }
+
+    &--favorite,
+    &--favorite-fill,
+    &--favorite-header {
+        width: 21px;
+        height: 19px;
+        font-size: 19px;
+    }
+
+    &--favorite {
+        position: relative;
+        color: @cl-gray;
+        transition: color @animation-time ease-in-out;
+    }
+
+    &--favorite-fill {
+        position: absolute;
+        color: @cl-twine;
+        opacity: 0;
+        transition: opacity @animation-time ease-in-out;
+    }
+
+    &--favorite-header {
+        color: @cl-twine;
+    }
+
+    &--phone {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+    }
+
+    &--burger {
+        font-size: 16px;
+    }
+
+    &--filter-reset {
+        display: none;
+        font-size: 10px;
+        color: @cl-dark-grey;
+        margin-right: 10px;
+    }
+
+    &--social {
+        transition: none;
+    }
+
+    &--filter {
+        font-size: 7px;
+        margin-left: 8px;
+    }
+
+    &--view {
+        font-size: 13px;
+    }
+
+    &--dropdown-select {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 12px;
+        font-size: 6px;
+        width: 10px;
+        height: 5px;
+        z-index: 1;
+    }
+}

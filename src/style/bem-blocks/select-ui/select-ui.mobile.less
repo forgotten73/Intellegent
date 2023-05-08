@@ -1,0 +1,82 @@
+.ui-selectmenu-button {
+
+    &.ui-button {
+        padding: 7px 11px 7px 13px;
+        border-radius: 0;
+        border: 1px solid @cl-gainsboro;
+        background-color: @cl-white;
+        margin-right: 0;
+        width: 100%;
+        transition: border-color @animation-time ease-in-out;
+        z-index: 2;
+
+        .no-touchevents &:hover,
+        .touchevents &:active {
+            border-color: @cl-buttered-rum;
+        }
+
+        .ui-icon {
+            overflow: visible;
+            background-image: none;
+            text-indent: 0;
+            height: 24px;
+            width: 10px;
+            font-size: 6px;
+            color: @cl-font-main;
+            transition: transform @animation-time ease-in-out;
+        }
+    }
+
+    .ui-selectmenu-text {
+        .circe();
+        .text(14px, 24px, 0em);
+        color: @cl-font-main;
+    }
+
+    &.ui-selectmenu-button-open {
+        .ui-icon {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.ui-menu {
+    &.ui-widget.ui-widget-content {
+        padding: 16px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+        border: none;
+        border-radius: 0;
+    }
+
+    .ui-menu-item {
+        list-style-type: none;
+        list-style-image: none;
+
+        &:first-child {
+            margin: -5px 0 0 0;
+
+            .ui-menu-item-wrapper {
+                color: @cl-buttered-rum;
+            }
+        }
+        &:last-child {
+            margin: 0 0 -5px 0;
+        }
+    }
+
+    .ui-menu-item-wrapper {
+        .circe();
+        .text(14px, 21px, 0em);
+        color: @cl-font-main;
+        padding: 5px 0;
+        transition: color @animation-time ease-in-out;
+
+        &.ui-state-active {
+            background-color: transparent;
+            border: none;
+            color: @cl-buttered-rum;
+            margin: 0;
+        }
+    }
+}
+

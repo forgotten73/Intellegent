@@ -1,0 +1,46 @@
+//- ====================
+//- kontora: Шапка сайта
+//- 00-00-2017: Author
+//- --------------------
+//- Шапка
+//- ====================
+mixin header()
+    include ../../section/ui-kit/button.pug
+    include ../../section/ui-kit/link.pug
+    include ../../section/ui-kit/logo.pug
+    include ../../section/nav-list.pug
+    include ../../section/ui-kit/icon.pug
+    include ../../section/burger-menu.pug
+
+    +b('header').header.js-header
+        +e.wrapper
+            +button({
+                link: false,
+            }).btn--primary.btn--burger(type="button" data-bs-toggle="offcanvas" data-bs-target="#burgerMenu")
+                +icon('burger').--burger
+
+            +burger-menu()
+
+            +logo()
+
+            +e.nav-wrap.js-customise-desktop
+                //- здесь nav-list
+
+            +button({
+                link: true,
+                href: 'javascript:void(0);',
+                title: 'Избранное'
+            }).btn--primary.btn--favorite-header
+                +icon('favorite-fill').--favorite-header
+                span.b-counter 2
+
+            +e.phone-wrap
+                +link({
+                    link: true,
+                    href: 'tel:+74951350981',
+                    content: '+7 (495) 135-09-81'
+                }).--phone-number(title="Позвоните нам")
+                +button({
+                    link: false
+                }).btn--primary.btn--phone.btn--link(title="Обратный звонок", data-bs-toggle="modal" data-bs-target="#feedback")
+                    +icon('phone').--phone
